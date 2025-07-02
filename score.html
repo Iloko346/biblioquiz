@@ -1,75 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Score - BiblioQuiz</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BiblioQuiz - Score</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4ff;
+      color: #222;
       text-align: center;
       padding: 2rem;
-      background: #f7faff;
     }
-    .container {
-      background: #fff;
-      padding: 2rem;
+    .score-container {
+      background: white;
       border-radius: 10px;
+      padding: 2rem;
       max-width: 600px;
       margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
     h1 {
       color: #0a2d59;
     }
-    .score {
-      font-size: 2rem;
-      margin: 1.5rem 0;
-      color: #28a745;
-    }
-    button {
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
       padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      background-color: #0a2d59;
+      background: #0a2d59;
       color: white;
-      border: none;
+      text-decoration: none;
       border-radius: 6px;
-      cursor: pointer;
     }
+    .score, .max-score, .missed {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .score { color: #28a745; }
+    .max-score { color: #007bff; }
+    .missed { color: #dc3545; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Ton Score Final</h1>
-    <p>Clique sur le bouton ci-dessous pour afficher ton score en fonction des bonnes réponses cochées.</p>
-    <button onclick="calculerScore()">Calculer le Score</button>
-    <div class="score" id="resultatScore">Score : 0</div>
+  <div class="score-container">
+    <h1>Ton score final</h1>
+    <p>Merci d’avoir complété BiblioQuiz ! Voici ton résultat :</p>
+    <div class="score" id="final-score">0</div>
+    <div class="max-score" id="maximum-score"></div>
+    <div class="missed" id="missed-points"></div>
+
+    <a href="index.html" class="btn">Retour à l'accueil</a>
   </div>
 
   <script>
-    // Exemple : nombre de bonnes réponses par niveau (à modifier dynamiquement selon le quiz)
-    const bonnesReponses = {
-      debutant: 5,
-      amateur: 4,
-      normal: 3,
-      pro: 2,
-      extreme: 1
+    // Exemple pour test : simulate some stored scores (à supprimer si déjà défini ailleurs)
+    if (!localStorage.getItem('debutant')) localStorage.setItem('debutant', '7');
+    if (!localStorage.getItem('amateur')) localStorage.setItem('amateur', '5');
+    if (!localStorage.getItem('normal')) localStorage.setItem('normal', '4');
+    if (!localStorage.getItem('pro')) localStorage.setItem('pro', '3');
+    if (!localStorage.getItem('extreme')) localStorage.setItem('extreme', '2');
+
+    const niveaux = {
+      debutant: { points: 10, total: 10 },
+      amateur: { points: 15, total: 8 },
+      normal: { points: 20, total: 7 },
+      pro: { points: 25, total: 5 },
+      extreme: { points: 30, total: 8 }
     };
 
-    const points = {
-      debutant: 10,
-      amateur: 15,
-      normal: 20,
-      pro: 25,
-      extreme: 30
-    };
+    let score = 0;
+    let maxScore = 0;
 
-    function calculerScore() {
-      const score = 
-        bonnesReponses.debutant * points.debutant +
-        bonnesReponses.amateur * points.amateur +
-        bonnesReponses.normal * points.normal +
-        bonnesReponses.pro * points.pro +
-        bonnesReponses.extreme * points.extreme;
+    for (let niveau in niveaux) {
+      const bonnesReponses = parseInt(localStorage.getItem(niveau));
+      const coef = niveaux[niveau].points;
+      const total = niveaux[niveau].total;
+
+      if (!isNaN(bonnesReponses)) {
+        score += bonnesReponses * coef;
+      }
+      maxScore += total * coef;
+    }
+
+    document.getElementById('final-score').textContent = score + " points";
+    document.getElementById('maximum-score').textContent = "Score maximum possible : " + maxScore + " points";
+    document.getElementById('missed-points').textContent = "Points manquants : " + (maxScore - score) + " points";
+  </script>
+</body>
+</html>
+
 
       document.getElementById('resultatScore').textContent = `Score : ${score}`;
     }
