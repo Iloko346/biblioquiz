@@ -1,70 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BiblioQuiz - Niveau Pro</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #02c61c;
+      background: linear-gradient(135deg, #e9fff0, #ffffff);
       color: #222;
     }
+
     header {
-      background: #02c61c;
+      background: linear-gradient(90deg, #02c61c, #0ee84b);
       color: white;
       padding: 2rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     .container {
       padding: 2rem;
       max-width: 900px;
       margin: auto;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
+
+    .intro {
+      font-style: italic;
+      background: #e5ffee;
+      padding: 1rem;
+      border-left: 4px solid #02c61c;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+    }
+
     .question {
       margin-bottom: 2rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1.5rem;
     }
+
     .question img {
       max-width: 100%;
       border-radius: 10px;
       margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
     .answers label {
       display: block;
-      background: #dbe6fb;
-      padding: 0.5rem;
+      background: #e3f9e7;
+      padding: 0.6rem 1rem;
       margin: 0.3rem 0;
-      border-radius: 5px;
-    }
-    .commentaire {
-      background: #d4edda;
-      padding: 0.8rem;
-      margin-top: 0.5rem;
-      border-left: 4px solid #222c24;
-      border-radius: 5px;
-    }
-    .btn {
-      background: #f3f3f3;
-      color: rgb(12, 250, 48);
-      padding: 0.8rem 1.2rem;
-      text-decoration: none;
       border-radius: 6px;
-      display: inline-block;
-      margin: 2rem 1rem 0;
+      cursor: pointer;
+      transition: background 0.3s;
     }
-    .intro {
-      font-style: italic;
-      background: #f3f3f3;
-      padding: 1rem;
-      border-left: 4px solid #0ac921;
-      border-radius: 5px;
-      margin-bottom: 2rem;
+
+    .answers label:hover {
+      background: #d0f3d7;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #02c61c, #06f243);
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 1rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(4, 231, 70, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(4, 231, 70, 0.7);
+    }
+
+    @media (max-width: 600px) {
+      .btn {
+        width: 100%;
+        margin-top: 1rem;
+      }
     }
   </style>
 </head>
@@ -82,65 +106,82 @@
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/four-horsemen/" alt="Job">
         <p>1. Quel personnage a tout perdu mais est resté fidèle à Dieu ?</p>
         <div class="answers">
-          <label><input type="radio" name="q1"> Jonas</label>
-          <label><input type="radio" name="q1"> Job </label>
-          <label><input type="radio" name="q1"> Caïn</label>
+          <label><input type="radio" name="q1" value="Jonas"> Jonas</label>
+          <label><input type="radio" name="q1" value="Job"> Job</label>
+          <label><input type="radio" name="q1" value="Caïn"> Caïn</label>
         </div>
-
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/ezekiel-vision/g" alt="Noé">
         <p>2. Combien de jours a duré le déluge selon la Bible ?</p>
         <div class="answers">
-          <label><input type="radio" name="q2"> 120 jours</label>
-          <label><input type="radio" name="q2"> 40 jours </label>
-          <label><input type="radio" name="q2"> 7 jours</label>
+          <label><input type="radio" name="q2" value="120 jours"> 120 jours</label>
+          <label><input type="radio" name="q2" value="40 jours"> 40 jours</label>
+          <label><input type="radio" name="q2" value="7 jours"> 7 jours</label>
         </div>
-        
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/tabernacle/" alt="Pentecôte">
         <p>3. Quel événement marque la venue du Saint-Esprit sur les disciples ?</p>
         <div class="answers">
-          <label><input type="radio" name="q3"> L'Ascension</label>
-          <label><input type="radio" name="q3"> La Pentecôte </label>
-          <label><input type="radio" name="q3"> Le baptême de Jésus</label>
+          <label><input type="radio" name="q3" value="L'Ascension"> L'Ascension</label>
+          <label><input type="radio" name="q3" value="La Pentecôte"> La Pentecôte</label>
+          <label><input type="radio" name="q3" value="Le baptême de Jésus"> Le baptême de Jésus</label>
         </div>
-       
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/paul-letters/" alt="Mur de Nehémie">
         <p>4. Quel personnage biblique a reconstruit les murs de Jérusalem ?</p>
         <div class="answers">
-          <label><input type="radio" name="q4"> Esdras</label>
-          <label><input type="radio" name="q4"> Néhémie </label>
-          <label><input type="radio" name="q4"> Daniel</label>
+          <label><input type="radio" name="q4" value="Esdras"> Esdras</label>
+          <label><input type="radio" name="q4" value="Néhémie"> Néhémie</label>
+          <label><input type="radio" name="q4" value="Daniel"> Daniel</label>
         </div>
-        
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/new-jerusalem/" alt="Babel">
         <p>5. Pourquoi Dieu a-t-il confondu les langues des hommes à Babel ?</p>
         <div class="answers">
-          <label><input type="radio" name="q5"> Pour les punir d’un meurtre</label>
-          <label><input type="radio" name="q5"> Pour les disperser sur la terre </label>
-          <label><input type="radio" name="q5"> Pour éviter la famine</label>
+          <label><input type="radio" name="q5" value="Pour les punir d’un meurtre"> Pour les punir d’un meurtre</label>
+          <label><input type="radio" name="q5" value="Pour les disperser sur la terre"> Pour les disperser sur la terre</label>
+          <label><input type="radio" name="q5" value="Pour éviter la famine"> Pour éviter la famine</label>
         </div>
-        
       </div>
 
       <div style="text-align: center;">
-        <a href="niveau-normal.html" class="btn">Retour au Niveau Normal</a>
-        <a href="extreme.html" class="btn">Passer au Niveau Extrême Docteur</a>
+        <a href="normal.html" class="btn">⬅️ Retour au Niveau Normal</a>
+        <a href="extreme.html" class="btn">➡️ Niveau Extrême Docteur</a>
       </div>
     </section>
   </div>
+
+  <script>
+    // Récupère les réponses déjà sauvegardées (ou objet vide si rien)
+    const savedAnswers = JSON.parse(localStorage.getItem('reponses_pro')) || {};
+
+    // Fonction pour restaurer les réponses cochées au chargement
+    function restoreAnswers() {
+      Object.entries(savedAnswers).forEach(([question, answer]) => {
+        const selector = `input[name="${question}"][value="${answer}"]`;
+        const input = document.querySelector(selector);
+        if (input) input.checked = true;
+      });
+    }
+
+    // Ajoute un écouteur sur chaque bouton radio pour sauvegarder la réponse
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+      input.addEventListener('change', () => {
+        savedAnswers[input.name] = input.value;
+        localStorage.setItem('reponses_pro', JSON.stringify(savedAnswers));
+      });
+    });
+
+    // Au chargement de la page, restaurer les réponses si présentes
+    window.addEventListener('DOMContentLoaded', restoreAnswers);
+  </script>
+
 </body>
 </html>
+
