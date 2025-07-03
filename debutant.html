@@ -1,209 +1,191 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BiblioQuiz - Niveau Débutant</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #f9f9ff;
+      background: linear-gradient(145deg, #e0f7fa, #f1e7ff);
       color: #222;
     }
     header {
-      background: #2d6cdf;
+      background: linear-gradient(90deg, #5c6bc0, #42a5f5);
       color: white;
       padding: 2rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .container {
       padding: 2rem;
-      max-width: 900px;
+      max-width: 950px;
       margin: auto;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    .question {
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1rem;
-    }
-    .question img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-    .answers label {
-      display: block;
-      background: #eaf0fc;
-      padding: 0.5rem;
-      margin: 0.3rem 0;
-      border-radius: 5px;
-    }
-    .commentaire {
-      background: #d4edda;
-      padding: 0.8rem;
-      margin-top: 0.5rem;
-      border-left: 4px solid #28a745;
-      border-radius: 5px;
-    }
-    .btn {
-      background: #2d6cdf;
-      color: white;
-      padding: 0.8rem 1.2rem;
-      text-decoration: none;
-      border-radius: 6px;
-      display: inline-block;
-      margin-top: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
     .intro {
       font-style: italic;
-      background: #eef5ff;
+      background: #e3f2fd;
       padding: 1rem;
-      border-left: 4px solid #2d6cdf;
+      border-left: 4px solid #42a5f5;
       border-radius: 5px;
       margin-bottom: 2rem;
+    }
+    .question {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1.5rem;
+    }
+    .answers label {
+      display: block;
+      background: #f0f7ff;
+      padding: 0.6rem 1rem;
+      margin: 0.3rem 0;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .btn {
+      background: linear-gradient(135deg, #7e57c2, #42a5f5);
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 1rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(126, 87, 194, 0.5);
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(66, 165, 245, 0.8);
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>debutant</h1>
-    <p>Explorez votre foi avec un Quiz fun et instructif</p>
+    <h1>📘 Niveau Débutant</h1>
+    <p>Explore ta foi avec un quiz amusant et instructif</p>
   </header>
 
   <div class="container">
-    <section id="niveau-debutant">
-      <h2>Niveau Débutant - 10 Questions</h2>
-      <div class="intro">
-Je puis tout par celui qui me fortifie." – Philippiens 4:13 Nous esperons que vous avez puisé l'intelligence à la bonne source. bonne chance!. Ce niveau est idéal pour les enfants, les nouveaux croyants ou les curieux de la Bible.
-      </div>
+    <section>
+      <h2>Niveau Débutant – 10 Questions</h2>
+      <div class="intro">CE NIVEAU EST ASSEZ ABORDABLE POUR TOUS</div>
 
-      <!-- Questions insérées ici -->
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/yo-noah/" alt="Adam et Eve">
         <p>1. Qui étaient les premiers humains créés par Dieu ?</p>
         <div class="answers">
-          <label><input type="radio" name="q1"> Abraham et Sarah</label>
-          <label><input type="radio" name="q1"> Moïse et Miriam</label>
-          <label><input type="radio" name="q1"> Adam et Ève </label>
+          <label><input type="radio" name="q1" value="Abraham et Sarah"> Abraham et Sarah</label>
+          <label><input type="radio" name="q1" value="Moïse et Miriam"> Moïse et Miriam</label>
+          <label><input type="radio" name="q1" value="Adam et Eve"> Adam et Eve</label>
         </div>
-        
-      
+      </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/preschool-fall/" alt="Arche de Noé">
         <p>2. Qui a construit une arche pour survivre au déluge ?</p>
         <div class="answers">
-          <label><input type="radio" name="q2"> Abraham</label>
-          <label><input type="radio" name="q2"> Noé </label>
-          <label><input type="radio" name="q2"> Jonas</label>
+          <label><input type="radio" name="q2" value="Abraham"> Abraham</label>
+          <label><input type="radio" name="q2" value="Noé"> Noé</label>
+          <label><input type="radio" name="q2" value="Jonas"> Jonas</label>
         </div>
-        
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbible.com/nouveausite/FICHES/des-hommes/F_A_Moise.htm" alt="Moïse et le buisson">
         <p>3. Dans quoi Dieu est-il apparu à Moïse ?</p>
         <div class="answers">
-          <label><input type="radio" name="q3"> Une nuée</label>
-          <label><input type="radio" name="q3"> Un buisson ardent </label>
-          <label><input type="radio" name="q3"> Une montagne</label>
+          <label><input type="radio" name="q3" value="Une nuée"> Une nuée</label>
+          <label><input type="radio" name="q3" value="Un buisson ardent"> Un buisson ardent</label>
+          <label><input type="radio" name="q3" value="Une montagne"> Une montagne</label>
         </div>
-        
-
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/lgr-birth-jesus/" alt="David et Goliath">
         <p>4. Qui a vaincu Goliath avec une fronde ?</p>
         <div class="answers">
-          <label><input type="radio" name="q4"> Samson</label>
-          <label><input type="radio" name="q4"> David </label>
-          <label><input type="radio" name="q4"> Salomon</label>
+          <label><input type="radio" name="q4" value="Samson"> Samson</label>
+          <label><input type="radio" name="q4" value="David"> David</label>
+          <label><input type="radio" name="q4" value="Salomon"> Salomon</label>
         </div>
-        
-
       </div>
 
       <div class="question">
-        <img src="https://utpictura18.univ-amu.fr/notice/22014-paque-en-egypte-figures-bible-1728-jacob-later-dapres-gerard-hoet" alt="Jésus naissant">
         <p>5. Où est né Jésus ?</p>
         <div class="answers">
-          <label><input type="radio" name="q5"> Nazareth</label>
-          <label><input type="radio" name="q5"> Bethléem </label>
-          <label><input type="radio" name="q5"> Jérusalem</label>
-        
-        
+          <label><input type="radio" name="q5" value="Nazareth"> Nazareth</label>
+          <label><input type="radio" name="q5" value="Bethléem"> Bethléem</label>
+          <label><input type="radio" name="q5" value="Jérusalem"> Jérusalem</label>
+        </div>
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/lgr-tower-babel/" alt="Multiplication des pains">
         <p>6. Jésus a nourri 5000 hommes avec combien de pains ?</p>
         <div class="answers">
-          <label><input type="radio" name="q6"> Cinq pains </label>
-          <label><input type="radio" name="q6"> Dix pains</label>
-          <label><input type="radio" name="q6"> Deux pains</label>
+          <label><input type="radio" name="q6" value="Cinq pains"> Cinq pains</label>
+          <label><input type="radio" name="q6" value="Dix pains"> Dix pains</label>
+          <label><input type="radio" name="q6" value="Deux pains"> Deux pains</label>
         </div>
-        
-      
+      </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/david-goliath/" alt="Crucifixion">
         <p>7. Qui a trahi Jésus ?</p>
         <div class="answers">
-          <label><input type="radio" name="q7"> Pierre</label>
-          <label><input type="radio" name="q7"> Judas Iscariot </label>
-          <label><input type="radio" name="q7"> Thomas</label>
+          <label><input type="radio" name="q7" value="Pierre"> Pierre</label>
+          <label><input type="radio" name="q7" value="Judas Iscariot"> Judas Iscariot</label>
+          <label><input type="radio" name="q7" value="Thomas"> Thomas</label>
         </div>
-        
-
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/rg-moses-10-commandments/" alt="Résurrection">
         <p>8. Combien de jours après sa mort Jésus est-il ressuscité ?</p>
         <div class="answers">
-          <label><input type="radio" name="q8"> 7 jours</label>
-          <label><input type="radio" name="q8"> 3 jours </label>
-          <label><input type="radio" name="q8"> 1 jour</label>
+          <label><input type="radio" name="q8" value="7 jours"> 7 jours</label>
+          <label><input type="radio" name="q8" value="3 jours"> 3 jours</label>
+          <label><input type="radio" name="q8" value="1 jour"> 1 jour</label>
         </div>
-        
-
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/yo-noah/" alt="Apôtres">
         <p>9. Combien Jésus avait-il d'apôtres ?</p>
         <div class="answers">
-          <label><input type="radio" name="q9"> 10</label>
-          <label><input type="radio" name="q9"> 12 </label>
-          <label><input type="radio" name="q9"> 7</label>
+          <label><input type="radio" name="q9" value="10"> 10</label>
+          <label><input type="radio" name="q9" value="12"> 12</label>
+          <label><input type="radio" name="q9" value="7"> 7</label>
         </div>
-        
-
       </div>
 
       <div class="question">
-        <img src="https://freebibleimages.org/illustrations/jesus-walks-water/" alt="Bible">
         <p>10. Combien de livres contient la Bible ?</p>
         <div class="answers">
-          <label><input type="radio" name="q10"> 66 </label>
-          <label><input type="radio" name="q10"> 72</label>
-          <label><input type="radio" name="q10"> 100</label>
+          <label><input type="radio" name="q10" value="66"> 66</label>
+          <label><input type="radio" name="q10" value="72"> 72</label>
+          <label><input type="radio" name="q10" value="100"> 100</label>
         </div>
-        
-
       </div>
 
       <div style="text-align: center;">
-        <a href="#accueil" class="btn">Revenir à l'accueil</a>
-            <a href="amateur.html" class="btn">Passer au niveau Amateur</a>
-          </div>
+        <a href="index.html" class="btn">🏠 Retour à l'accueil</a>
+        <a href="amateur.html" class="btn">➡️ Niveau suivant : Amateur</a>
       </div>
     </section>
   </div>
+
+  <script>
+    const inputs = document.querySelectorAll('input[type=radio]');
+    let reponses = JSON.parse(localStorage.getItem("reponses_debutant")) || {};
+
+    inputs.forEach(input => {
+      input.addEventListener("change", () => {
+        const name = input.name;
+        const value = input.value;
+        reponses[name] = value;
+        localStorage.setItem("reponses_debutant", JSON.stringify(reponses));
+      });
+    });
+  </script>
 </body>
 </html>
