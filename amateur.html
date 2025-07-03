@@ -1,77 +1,96 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BiblioQuiz - Niveau Normal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BiblioQuiz - Niveau Amateur</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #e86c07;
+      background: linear-gradient(145deg, #ffd4ae, #ffe0c3);
       color: #222;
     }
+
     header {
-      background: #e86c07;
+      background: linear-gradient(90deg, #e86c07, #ff9800);
       color: white;
       padding: 2rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     .container {
       padding: 2rem;
-      max-width: 900px;
+      max-width: 950px;
       margin: auto;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
+
+    .intro {
+      font-style: italic;
+      background: #fff3e0;
+      padding: 1rem;
+      border-left: 4px solid #e86c07;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+    }
+
     .question {
       margin-bottom: 2rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1.5rem;
     }
+
     .question img {
       max-width: 100%;
       border-radius: 10px;
       margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
     .answers label {
       display: block;
-      background: #e0ebf9;
-      padding: 0.5rem;
+      background: #fdf2e9;
+      padding: 0.6rem 1rem;
       margin: 0.3rem 0;
-      border-radius: 5px;
-    }
-    .commentaire {
-      background: #d4edda;
-      padding: 0.8rem;
-      margin-top: 0.5rem;
-      border-left: 4px solid #28a745;
-      border-radius: 5px;
-    }
-    .btn {
-      background: #d96805;
-      color: white;
-      padding: 0.8rem 1.2rem;
-      text-decoration: none;
       border-radius: 6px;
-      display: inline-block;
-      margin: 2rem 1rem 0;
+      cursor: pointer;
     }
-    .intro {
-      font-style: italic;
-      background: #e68505;
-      padding: 1rem;
-      border-left: 4px solid #120b9e;
-      border-radius: 5px;
-      margin-bottom: 2rem;
+
+    .btn {
+      background: linear-gradient(135deg, #ff9800, #f57c00);
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 1rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(255, 152, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(245, 124, 0, 0.8);
+    }
+
+    @media (max-width: 600px) {
+      .btn {
+        width: 100%;
+        margin-top: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>BiblioQuiz</h1>
-    <p>Niveau Normal - Testez votre compréhension biblique</p>
+    <p>Niveau Amateur - Testez votre compréhension biblique</p>
   </header>
 
   <div class="container">
@@ -82,99 +101,96 @@
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/yo-abraham/" alt="Apocalypse">
         <p>1. Quel est le dernier livre de la Bible ?</p>
         <div class="answers">
-          <label><input type="radio" name="q1"> Genèse</label>
-          <label><input type="radio" name="q1"> Hébreux</label>
-          <label><input type="radio" name="q1"> Apocalypse </label>
+          <label><input type="radio" name="q1" value="Genèse"> Genèse</label>
+          <label><input type="radio" name="q1" value="Hébreux"> Hébreux</label>
+          <label><input type="radio" name="q1" value="Apocalypse"> Apocalypse</label>
         </div>
-      
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/yo-joseph/" alt="Jésus tenté">
         <p>2. Combien de temps Jésus a-t-il jeûné dans le désert ?</p>
         <div class="answers">
-          <label><input type="radio" name="q2"> 10 jours</label>
-          <label><input type="radio" name="q2"> 40 jours </label>
-          <label><input type="radio" name="q2"> 3 jours</label>
+          <label><input type="radio" name="q2" value="10 jours"> 10 jours</label>
+          <label><input type="radio" name="q2" value="40 jours"> 40 jours</label>
+          <label><input type="radio" name="q2" value="3 jours"> 3 jours</label>
         </div>
-    
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/yo-manna/" alt="Rois d'Israël">
         <p>3. Quel roi a succédé à Saul ?</p>
         <div class="answers">
-          <label><input type="radio" name="q3"> Salomon</label>
-          <label><input type="radio" name="q3"> David </label>
-          <label><input type="radio" name="q3"> Samuel</label>
+          <label><input type="radio" name="q3" value="Salomon"> Salomon</label>
+          <label><input type="radio" name="q3" value="David"> David</label>
+          <label><input type="radio" name="q3" value="Samuel"> Samuel</label>
         </div>
-        
-
+      </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/yo-good-samaritan/" alt="Fruits de l'Esprit">
         <p>4. Où trouve-t-on les fruits de l'Esprit ?</p>
         <div class="answers">
-          <label><input type="radio" name="q4"> Ephésiens</label>
-          <label><input type="radio" name="q4"> Galates </label>
-          <label><input type="radio" name="q4"> Philippiens</label>
+          <label><input type="radio" name="q4" value="Ephésiens"> Ephésiens</label>
+          <label><input type="radio" name="q4" value="Galates"> Galates</label>
+          <label><input type="radio" name="q4" value="Philippiens"> Philippiens</label>
         </div>
-        
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/yo-crucifixion/" alt="Tour de Jéricho">
         <p>5. Quelle ville les Israélites ont-ils fait tomber en tournant autour ?</p>
         <div class="answers">
-          <label><input type="radio" name="q5"> Jérusalem</label>
-          <label><input type="radio" name="q5"> Jéricho </label>
-          <label><input type="radio" name="q5"> Samarie</label>
+          <label><input type="radio" name="q5" value="Jérusalem"> Jérusalem</label>
+          <label><input type="radio" name="q5" value="Jéricho"> Jéricho</label>
+          <label><input type="radio" name="q5" value="Samarie"> Samarie</label>
         </div>
-        
-      
-
-      <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/yo-pentecost/" alt="Marie et l'ange">
-        <p>6. Quel ange a annoncé la naissance de Jésus à Marie ?</p>
-        <div class="answers">
-          <label><input type="radio" name="q6"> Michel</label>
-          <label><input type="radio" name="q6"> Gabriel </label>
-          <label><input type="radio" name="q6"> Raphaël</label>
-        </div>
-
-      
-
-      <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/yo-jesus-teaching/" alt="Apôtre Paul">
-        <p>7. Quel apôtre écrivait de nombreuses lettres aux églises ?</p>
-        <div class="answers">
-          <label><input type="radio" name="q7"> Pierre</label>
-          <label><input type="radio" name="q7"> Paul </label>
-          <label><input type="radio" name="q7"> Jacques</label>
-        
-
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/yo-peter-walks-water/" alt="Création">
+        <p>6. Quel ange a annoncé la naissance de Jésus à Marie ?</p>
+        <div class="answers">
+          <label><input type="radio" name="q6" value="Michel"> Michel</label>
+          <label><input type="radio" name="q6" value="Gabriel"> Gabriel</label>
+          <label><input type="radio" name="q6" value="Raphaël"> Raphaël</label>
+        </div>
+      </div>
+
+      <div class="question">
+        <p>7. Quel apôtre écrivait de nombreuses lettres aux églises ?</p>
+        <div class="answers">
+          <label><input type="radio" name="q7" value="Pierre"> Pierre</label>
+          <label><input type="radio" name="q7" value="Paul"> Paul</label>
+          <label><input type="radio" name="q7" value="Jacques"> Jacques</label>
+        </div>
+      </div>
+
+      <div class="question">
         <p>8. En combien de jours Dieu a-t-il créé le monde ?</p>
         <div class="answers">
-          <label><input type="radio" name="q8"> 5 jours</label>
-          <label><input type="radio" name="q8"> 6 jours </label>
-          <label><input type="radio" name="q8"> 7 jours</label>
+          <label><input type="radio" name="q8" value="5 jours"> 5 jours</label>
+          <label><input type="radio" name="q8" value="6 jours"> 6 jours</label>
+          <label><input type="radio" name="q8" value="7 jours"> 7 jours</label>
         </div>
-      
-
       </div>
 
       <div style="text-align: center;">
-        <a href="amateur.html" class="btn">Retour au Niveau Amateur</a>
-        <a href="normal.html" class="btn">Passer au Niveau Normal</a>
+        <a href="debutant.html" class="btn">⬅️ Retour au niveau debutant</a>
+        <a href="normal.html" class="btn">➡️ Passer au niveau Normal</a>
       </div>
     </section>
   </div>
+
+  <script>
+    const inputs = document.querySelectorAll('input[type=radio]');
+    let reponses = JSON.parse(localStorage.getItem("reponses_amateur")) || {};
+
+    inputs.forEach(input => {
+      input.addEventListener("change", () => {
+        const name = input.name;
+        const value = input.value;
+        reponses[name] = value;
+        localStorage.setItem("reponses_amateur", JSON.stringify(reponses));
+      });
+    });
+  </script>
 </body>
 </html>
