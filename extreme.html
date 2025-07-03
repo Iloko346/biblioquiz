@@ -1,70 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BiblioQuiz - Niveau Extrême Docteur</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #f4e006;
+      background: linear-gradient(135deg, #fff9c4, #fffde7);
       color: #222;
     }
+
     header {
       background: #0a2d59;
       color: white;
       padding: 2rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+
     .container {
       padding: 2rem;
       max-width: 900px;
       margin: auto;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     }
+
+    .intro {
+      font-style: italic;
+      background: #fff59d;
+      padding: 1rem;
+      border-left: 5px solid #0a2d59;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
     .question {
       margin-bottom: 2rem;
       border-bottom: 1px solid #ccc;
-      padding-bottom: 1rem;
+      padding-bottom: 1.5rem;
     }
+
     .question img {
       max-width: 100%;
       border-radius: 10px;
       margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
     .answers label {
       display: block;
-      background: #e0e8f5;
-      padding: 0.5rem;
+      background: #f0f4fc;
+      padding: 0.6rem 1rem;
       margin: 0.3rem 0;
-      border-radius: 5px;
-    }
-    .commentaire {
-      background: #f4e006;
-      padding: 0.8rem;
-      margin-top: 0.5rem;
-      border-left: 4px solid #28a745;
-      border-radius: 5px;
-    }
-    .btn {
-      background: #0a2d59;
-      color: white;
-      padding: 0.8rem 1.2rem;
-      text-decoration: none;
       border-radius: 6px;
-      display: inline-block;
-      margin: 2rem 1rem 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
-    .intro {
-      font-style: italic;
-      background: #f4e006;
-      padding: 1rem;
-      border-left: 4px solid #0a2d59;
-      border-radius: 5px;
-      margin-bottom: 2rem;
+
+    .answers label:hover {
+      background: #e0ebf8;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #0a2d59, #1755a6);
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 1rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(14, 61, 122, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(14, 61, 122, 0.8);
+    }
+
+    @media (max-width: 600px) {
+      .btn {
+        width: 100%;
+        margin-top: 1rem;
+      }
     }
   </style>
 </head>
@@ -84,89 +108,107 @@
       <div class="question">
         <p>1. Quel prophète a vu un chariot de feu enlevé au ciel ?</p>
         <div class="answers">
-          <label><input type="radio" name="q1"> Ésaïe</label>
-          <label><input type="radio" name="q1"> Élie </label>
-          <label><input type="radio" name="q1"> Ézéchiel</label>
+          <label><input type="radio" name="q1" value="Ésaïe"> Ésaïe</label>
+          <label><input type="radio" name="q1" value="Élie"> Élie</label>
+          <label><input type="radio" name="q1" value="Ézéchiel"> Ézéchiel</label>
         </div>
-      
       </div>
 
       <div class="question">
         <p>2. Combien de chapitres contient le livre des Psaumes ?</p>
         <div class="answers">
-          <label><input type="radio" name="q2"> 100</label>
-          <label><input type="radio" name="q2"> 150 </label>
-          <label><input type="radio" name="q2"> 121</label>
+          <label><input type="radio" name="q2" value="100"> 100</label>
+          <label><input type="radio" name="q2" value="150"> 150</label>
+          <label><input type="radio" name="q2" value="121"> 121</label>
         </div>
-       
       </div>
 
       <div class="question">
         <p>3. Quelle femme juge d’Israël a dirigé le peuple ?</p>
         <div class="answers">
-          <label><input type="radio" name="q3"> Marie</label>
-          <label><input type="radio" name="q3"> Débora </label>
-          <label><input type="radio" name="q3"> Esther</label>
+          <label><input type="radio" name="q3" value="Marie"> Marie</label>
+          <label><input type="radio" name="q3" value="Débora"> Débora</label>
+          <label><input type="radio" name="q3" value="Esther"> Esther</label>
         </div>
-     
       </div>
 
       <div class="question">
         <p>4. Qui a écrit les Lamentations dans l'Ancien Testament ?</p>
         <div class="answers">
-          <label><input type="radio" name="q4"> Jérémie </label>
-          <label><input type="radio" name="q4"> Moïse</label>
-          <label><input type="radio" name="q4"> David</label>
+          <label><input type="radio" name="q4" value="Jérémie"> Jérémie</label>
+          <label><input type="radio" name="q4" value="Moïse"> Moïse</label>
+          <label><input type="radio" name="q4" value="David"> David</label>
         </div>
-       
       </div>
 
       <div class="question">
         <p>5. Quel roi est monté sur le trône à l’âge de 8 ans ?</p>
         <div class="answers">
-          <label><input type="radio" name="q5"> Josias </label>
-          <label><input type="radio" name="q5"> Roboam</label>
-          <label><input type="radio" name="q5"> Salomon</label>
+          <label><input type="radio" name="q5" value="Josias"> Josias</label>
+          <label><input type="radio" name="q5" value="Roboam"> Roboam</label>
+          <label><input type="radio" name="q5" value="Salomon"> Salomon</label>
         </div>
-       
       </div>
 
       <div class="question">
         <p>6. Quel est le nom hébreu du livre de Genèse ?</p>
         <div class="answers">
-          <label><input type="radio" name="q6"> Shemot</label>
-          <label><input type="radio" name="q6"> Bereshit </label>
-          <label><input type="radio" name="q6"> Vayikra</label>
+          <label><input type="radio" name="q6" value="Shemot"> Shemot</label>
+          <label><input type="radio" name="q6" value="Bereshit"> Bereshit</label>
+          <label><input type="radio" name="q6" value="Vayikra"> Vayikra</label>
         </div>
-      
       </div>
 
       <div class="question">
         <p>7. Combien de lettres Paul a-t-il écrites dans le Nouveau Testament ?</p>
         <div class="answers">
-          <label><input type="radio" name="q7"> 14 </label>
-          <label><input type="radio" name="q7"> 12</label>
-          <label><input type="radio" name="q7"> 9</label>
+          <label><input type="radio" name="q7" value="14"> 14</label>
+          <label><input type="radio" name="q7" value="12"> 12</label>
+          <label><input type="radio" name="q7" value="9"> 9</label>
         </div>
-       
       </div>
 
       <div class="question">
         <p>8. Quelle ville était appelée "la grande prostituée" dans l’Apocalypse ?</p>
         <div class="answers">
-          <label><input type="radio" name="q8"> Jérusalem</label>
-          <label><input type="radio" name="q8"> Babylone </label>
-          <label><input type="radio" name="q8"> Rome</label>
+          <label><input type="radio" name="q8" value="Jérusalem"> Jérusalem</label>
+          <label><input type="radio" name="q8" value="Babylone"> Babylone</label>
+          <label><input type="radio" name="q8" value="Rome"> Rome</label>
         </div>
-       
       </div>
 
       <div style="text-align: center;">
-        <a href="pro.html" class="btn">Retour au Niveau Pro</a>
-        <a href="score.html" class="btn">Voir Mon Score Final</a>
-        <a href="index.html" class="btn"> menu principal</a>
+        <a href="pro.html" class="btn">⬅️ Retour au Niveau Pro</a>
+        <a href="score.html" class="btn">🏆 Voir Mon Score Final</a>
+        <a href="index.html" class="btn">🏠 Menu Principal</a>
       </div>
     </section>
   </div>
+
+  <script>
+    // Récupère les réponses déjà sauvegardées (ou objet vide si rien)
+    const savedAnswers = JSON.parse(localStorage.getItem('reponses_extreme')) || {};
+
+    // Fonction pour restaurer les réponses cochées au chargement
+    function restoreAnswers() {
+      Object.entries(savedAnswers).forEach(([question, answer]) => {
+        const selector = `input[name="${question}"][value="${answer}"]`;
+        const input = document.querySelector(selector);
+        if (input) input.checked = true;
+      });
+    }
+
+    // Ajoute un écouteur sur chaque bouton radio pour sauvegarder la réponse
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+      input.addEventListener('change', () => {
+        savedAnswers[input.name] = input.value;
+        localStorage.setItem('reponses_extreme', JSON.stringify(savedAnswers));
+      });
+    });
+
+    // Au chargement de la page, restaurer les réponses si présentes
+    window.addEventListener('DOMContentLoaded', restoreAnswers);
+  </script>
 </body>
 </html>
+
