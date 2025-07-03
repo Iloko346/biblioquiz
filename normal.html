@@ -1,70 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BiblioQuiz - Niveau Normal</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #ed0911;
+      background: linear-gradient(145deg, #ffdede, #fff6f6);
       color: #222;
     }
+
     header {
-      background: #ed0911;
+      background: linear-gradient(90deg, #ed0911, #ff3333);
       color: white;
       padding: 2rem 1rem;
       text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     .container {
       padding: 2rem;
       max-width: 900px;
       margin: auto;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
     }
+
+    .intro {
+      font-style: italic;
+      background: #ffe2e2;
+      padding: 1rem;
+      border-left: 4px solid #c20a0a;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+    }
+
     .question {
       margin-bottom: 2rem;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1.5rem;
     }
+
     .question img {
       max-width: 100%;
       border-radius: 10px;
       margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
     .answers label {
       display: block;
-      background: #e0ebf9;
-      padding: 0.5rem;
+      background: #fce8e8;
+      padding: 0.6rem 1rem;
       margin: 0.3rem 0;
-      border-radius: 5px;
-    }
-    .commentaire {
-      background: #d4edda;
-      padding: 0.8rem;
-      margin-top: 0.5rem;
-      border-left: 4px solid #28a745;
-      border-radius: 5px;
-    }
-    .btn {
-      background: #de033a;
-      color: white;
-      padding: 0.8rem 1.2rem;
-      text-decoration: none;
       border-radius: 6px;
-      display: inline-block;
-      margin: 2rem 1rem 0;
+      cursor: pointer;
+      transition: background 0.3s;
     }
-    .intro {
-      font-style: italic;
-      background: #de033a;
-      padding: 1rem;
-      border-left: 4px solid #1b4b91;
-      border-radius: 5px;
-      margin-bottom: 2rem;
+
+    .answers label:hover {
+      background: #f8d4d4;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #ff4d4d, #e60000);
+      color: white;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 1rem;
+      display: inline-block;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+    }
+
+    @media (max-width: 600px) {
+      .btn {
+        width: 100%;
+        margin-top: 1rem;
+      }
     }
   </style>
 </head>
@@ -82,84 +106,99 @@
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/judges/" alt="Rameaux">
         <p>1. Lors de son entrée à Jérusalem, que tenait la foule pour acclamer Jésus ?</p>
         <div class="answers">
-          <label><input type="radio" name="q1"> Des épées</label>
-          <label><input type="radio" name="q1"> Des palmes </label>
-          <label><input type="radio" name="q1"> Des pierres</label>
+          <label><input type="radio" name="q1" value="Des épées"> Des épées</label>
+          <label><input type="radio" name="q1" value="Des palmes"> Des palmes</label>
+          <label><input type="radio" name="q1" value="Des pierres"> Des pierres</label>
         </div>
-     
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/jericho/" alt="Multiplication des pains">
         <p>2. Combien de pains Jésus a-t-il utilisé pour nourrir 5 000 hommes ?</p>
         <div class="answers">
-          <label><input type="radio" name="q2"> 7</label>
-          <label><input type="radio" name="q2"> 5 </label>
-          <label><input type="radio" name="q2"> 12</label>
+          <label><input type="radio" name="q2" value="7"> 7</label>
+          <label><input type="radio" name="q2" value="5"> 5</label>
+          <label><input type="radio" name="q2" value="12"> 12</label>
         </div>
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/naaman/" alt="Zachée">
         <p>3. Quel homme petit de taille est monté sur un sycomore pour voir Jésus ?</p>
         <div class="answers">
-          <label><input type="radio" name="q3"> Nicodème</label>
-          <label><input type="radio" name="q3"> Zachée </label>
-          <label><input type="radio" name="q3"> Bartimée</label>
+          <label><input type="radio" name="q3" value="Nicodème"> Nicodème</label>
+          <label><input type="radio" name="q3" value="Zachée"> Zachée</label>
+          <label><input type="radio" name="q3" value="Bartimée"> Bartimée</label>
         </div>
-        
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/lazarus/" alt="Pierre marchant sur l'eau">
         <p>4. Quel disciple a marché sur l’eau vers Jésus ?</p>
         <div class="answers">
-          <label><input type="radio" name="q4"> Jean</label>
-          <label><input type="radio" name="q4"> Pierre </label>
-          <label><input type="radio" name="q4"> André</label>
+          <label><input type="radio" name="q4" value="Jean"> Jean</label>
+          <label><input type="radio" name="q4" value="Pierre"> Pierre</label>
+          <label><input type="radio" name="q4" value="André"> André</label>
         </div>
-        
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/sower/" alt="Actes des apôtres">
         <p>5. Quel livre raconte la naissance de l'Église après la résurrection de Jésus ?</p>
         <div class="answers">
-          <label><input type="radio" name="q5"> Romains</label>
-          <label><input type="radio" name="q5"> Actes </label>
-          <label><input type="radio" name="q5"> Apocalypse</label>
+          <label><input type="radio" name="q5" value="Romains"> Romains</label>
+          <label><input type="radio" name="q5" value="Actes"> Actes</label>
+          <label><input type="radio" name="q5" value="Apocalypse"> Apocalypse</label>
         </div>
-        
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/woman-adultery/" alt="Moïse et le buisson">
         <p>6. Que faisait Moïse quand il vit le buisson ardent ?</p>
         <div class="answers">
-          <label><input type="radio" name="q6"> Il dormait</label>
-          <label><input type="radio" name="q6"> Il priait</label>
-          <label><input type="radio" name="q6"> Il faisait paître les brebis </label>
+          <label><input type="radio" name="q6" value="Il dormait"> Il dormait</label>
+          <label><input type="radio" name="q6" value="Il priait"> Il priait</label>
+          <label><input type="radio" name="q6" value="Il faisait paître les brebis"> Il faisait paître les brebis</label>
         </div>
       </div>
 
       <div class="question">
-        <img src="https://www.imagesbibliques.org/illustrations/paul-mission/" alt="Résurrection de Lazare">
         <p>7. Qui Jésus a-t-il ressuscité après 4 jours dans le tombeau ?</p>
         <div class="answers">
-          <label><input type="radio" name="q7"> Jean-Baptiste</label>
-          <label><input type="radio" name="q7"> Lazare </label>
-          <label><input type="radio" name="q7"> Étienne</label>
+          <label><input type="radio" name="q7" value="Jean-Baptiste"> Jean-Baptiste</label>
+          <label><input type="radio" name="q7" value="Lazare"> Lazare</label>
+          <label><input type="radio" name="q7" value="Étienne"> Étienne</label>
         </div>
       </div>
 
       <div style="text-align: center;">
-        <a href="amateur.html" class="btn">Retour au Niveau Amateur</a>
-        <a href="pro.html" class="btn">Passer au Niveau Pro</a>
+        <a href="amateur.html" class="btn">⬅️ Retour au Niveau Amateur</a>
+        <a href="pro.html" class="btn">➡️ Passer au Niveau Pro</a>
       </div>
     </section>
   </div>
+
+  <script>
+    // Récupération des réponses stockées ou initialisation d'un objet vide
+    const savedAnswers = JSON.parse(localStorage.getItem('reponses_normal')) || {};
+
+    // Fonction pour pré-cocher les réponses sauvegardées
+    function restoreAnswers() {
+      Object.entries(savedAnswers).forEach(([question, answer]) => {
+        const selector = `input[name="${question}"][value="${answer}"]`;
+        const input = document.querySelector(selector);
+        if(input) input.checked = true;
+      });
+    }
+
+    // Écouteur sur chaque input radio pour sauvegarder la réponse au changement
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+      input.addEventListener('change', () => {
+        savedAnswers[input.name] = input.value;
+        localStorage.setItem('reponses_normal', JSON.stringify(savedAnswers));
+      });
+    });
+
+    // Au chargement de la page, restaurer les réponses cochées
+    window.addEventListener('DOMContentLoaded', restoreAnswers);
+  </script>
 </body>
 </html>
+
