@@ -1,95 +1,297 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BiblioQuiz - Score</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BiblioQuiz - Résultats Globaux</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f0f4ff;
+      margin: 0;
+      background: #f9f9f9;
       color: #222;
-      text-align: center;
-      padding: 2rem;
     }
-    .score-container {
-      background: white;
-      border-radius: 10px;
-      padding: 2rem;
-      max-width: 600px;
-      margin: auto;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #0a2d59;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.8rem 1.5rem;
-      background: #0a2d59;
+    header {
+      background: #444;
       color: white;
-      text-decoration: none;
-      border-radius: 6px;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
-    .score, .max-score, .missed, .verse {
-      font-size: 1.5rem;
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+    h2 {
+      color: #222;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    .level-section {
+      margin-bottom: 3rem;
+    }
+    .result-question {
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid #ccc;
+    }
+    .result-question p {
+      margin: 0.3rem 0;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+    .incorrect {
+      color: red;
+      font-weight: bold;
+    }
+    .correct-answer {
+      font-style: italic;
+      color: #444;
+      margin-top: 0.3rem;
+    }
+    .score {
+      font-size: 1.4rem;
       font-weight: bold;
       margin-top: 1rem;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      background: #e3f2fd;
+      color: #0d47a1;
+      display: inline-block;
     }
-    .score { color: #28a745; }
-    .max-score { color: #007bff; }
-    .missed { color: #dc3545; }
-    .verse {
-      font-size: 1.2rem;
+    .message {
       font-style: italic;
-      color: #555;
-      margin-top: 2rem;
+      margin-top: 0.3rem;
+      color: #666;
+    }
+    .global-score {
+      text-align: center;
+      font-size: 1.7rem;
+      font-weight: bold;
+      margin-top: 3rem;
+      padding: 1rem;
+      background: #1976d2;
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(25, 118, 210, 0.6);
+    }
+    a.btn-home {
+      display: block;
+      margin: 3rem auto 1rem auto;
+      background: #1976d2;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      width: fit-content;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(25, 118, 210, 0.6);
+      transition: all 0.3s ease;
+    }
+    a.btn-home:hover {
+      box-shadow: 0 0 25px rgba(25, 118, 210, 0.9);
+      transform: translateY(-3px);
     }
   </style>
 </head>
 <body>
-  <div class="score-container">
-    <h1>Ton score final</h1>
-    <p>Merci d’avoir complété BiblioQuiz ! Voici ton résultat :</p>
-    <div class="score" id="final-score">0</div>
-    <div class="max-score" id="maximum-score"></div>
-    <div class="missed" id="missed-points"></div>
-    <div class="verse">"Je puis tout par celui qui me fortifie." – Philippiens 4:13</div>
+  <header>
+    <h1>BiblioQuiz</h1>
+    <p>Résultats de tous les niveaux</p>
+  </header>
 
-    <a href="index.html" class="btn">Retour à l'accueil</a>
-  </div>
+  <main id="results">
+    <!-- Les résultats par niveau seront injectés ici -->
+  </main>
+
+  <a href="index.html" class="btn-home">🏠 Retour au Menu Principal</a>
 
   <script>
-    const niveaux = {
-      debutant: { points: 10, total: 10 },   // max: 100
-      amateur: { points: 15, total: 8 },     // max: 120
-      normal: { points: 20, total: 7 },      // max: 140
-      pro: { points: 25, total: 5 },         // max: 125
-      extreme: { points: 30, total: 8 }      // max: 240
+    // Données : bonnes réponses par niveau
+    const quizData = {
+      debutant: {
+        key: 'reponses_debutant',
+        questionsCount: 10,
+        answers: {
+          q1: "Adam et Eve",
+          q2: "Noé",
+          q3: "Un buisson ardent",
+          q4: "David",
+          q5: "Bethléem",
+          q6: "Cinq pains",
+          q7: "Judas Iscariot",
+          q8: "3 jours",
+          q9: "12",
+          q10: "66"
+        }
+      },
+      amateur: {
+        key: 'reponses_amateur',
+        questionsCount: 8, // adapte si tu as moins
+        answers: {
+          q1: "Apocalypse",
+          q2: "40 jours",
+          q3: "David",
+          q4: "Galates",
+          q5: "Jéricho",
+          q6: "Gabriel",
+          q7: "Paul",
+          q8: "7 jours",
+          
+          
+        }
+      },
+      normal: {
+        key: 'reponses_normal',
+        questionsCount: 7,
+        answers: {
+          q1: "Des palmes",
+          q2: "5",
+          q3: "Zachée",
+          q4: "Pierre",
+          q5: "Actes",
+          q6: "Il faisait paître les brebis",
+          q7: "Lazare"
+        }
+      },
+      pro: {
+        key: 'reponses_pro',
+        questionsCount: 5,
+        answers: {
+          q1: "Job",
+          q2: "40 jours",
+          q3: "La Pentecôte",
+          q4: "Néhémie",
+          q5: "Pour les disperser sur la terre"
+        }
+      },
+      extreme: {
+        key: 'reponses_extreme',
+        questionsCount: 8,
+        answers: {
+          q1: "Élie",
+          q2: "150",
+          q3: "Débora",
+          q4: "",
+          q5: "Josias",
+          q6: "Bereshit",
+          q7: "12",
+          q8: "Babylone"
+        }
+      }
     };
 
-    let score = 0;
-    let maxScore = 0;
-
-    for (let niveau in niveaux) {
-      const bonnesReponses = parseInt(localStorage.getItem(niveau));
-      const coef = niveaux[niveau].points;
-      const total = niveaux[niveau].total;
-
-      const niveauScore = (!isNaN(bonnesReponses) && bonnesReponses >= 0) ? bonnesReponses * coef : 0;
-      score += niveauScore;
-      maxScore += total * coef;
+    // Fonction d'encouragement
+    function getEncouragement(scorePercent) {
+      if(scorePercent === 100) return "Parfait ! Vous êtes un vrai expert biblique ! 🌟";
+      if(scorePercent >= 80) return "Excellent travail, continuez ainsi ! 👍";
+      if(scorePercent >= 50) return "Bon effort, mais vous pouvez encore progresser. 📖";
+      return "Ne vous découragez pas, chaque pas compte ! ✨";
     }
 
-    document.getElementById('final-score').textContent = score + " points";
-    document.getElementById('maximum-score').textContent = "Score maximum possible : " + maxScore + " points";
-    document.getElementById('missed-points').textContent = "Points manquants : " + (maxScore - score) + " points";
+    // Récupérer le container principal
+    const main = document.getElementById('results');
+
+    let totalCorrectAll = 0;
+    let totalQuestionsAll = 0;
+
+    // Parcours de chaque niveau
+    for (const [levelName, levelData] of Object.entries(quizData)) {
+      const userAnswers = JSON.parse(localStorage.getItem(levelData.key)) || {};
+      const levelDiv = document.createElement('section');
+      levelDiv.className = 'level-section';
+
+      // Titre niveau
+      const h2 = document.createElement('h2');
+      // Nom lisible pour l'utilisateur
+      const levelTitleMap = {
+        debutant: 'Débutant',
+        amateur: 'Amateur',
+        normal: 'Normal',
+        pro: 'Pro',
+        extreme: 'Extrême Docteur'
+      };
+      h2.textContent = `Niveau ${levelTitleMap[levelName]} - Résultats`;
+      levelDiv.appendChild(h2);
+
+      let correctCount = 0;
+      const totalQ = levelData.questionsCount;
+
+      // Parcours questions du niveau
+      for (let i=1; i<=totalQ; i++) {
+        const qKey = 'q'+i;
+        const bonneReponse = levelData.answers[qKey];
+        const reponseJoueur = userAnswers[qKey];
+
+        const divQ = document.createElement('div');
+        divQ.className = 'result-question';
+
+        // Question numéro
+        const pNum = document.createElement('p');
+        pNum.innerHTML = `<strong>Question ${i} :</strong>`;
+        divQ.appendChild(pNum);
+
+        // Réponse du joueur
+        const pRep = document.createElement('p');
+        if(reponseJoueur === undefined) {
+          pRep.innerHTML = `<span class="incorrect">Vous n'avez pas répondu à cette question.</span>`;
+        } else if(reponseJoueur === bonneReponse) {
+          pRep.innerHTML = `<span class="correct">Votre réponse : ${reponseJoueur} (Correct)</span>`;
+          correctCount++;
+        } else {
+          pRep.innerHTML = `<span class="incorrect">Votre réponse : ${reponseJoueur} (Incorrect)</span>`;
+        }
+        divQ.appendChild(pRep);
+
+        // Si mauvaise réponse, afficher la bonne réponse
+        if(reponseJoueur !== bonneReponse) {
+          const pBonne = document.createElement('p');
+          pBonne.className = 'correct-answer';
+          pBonne.textContent = `Bonne réponse : ${bonneReponse}`;
+          divQ.appendChild(pBonne);
+        }
+
+        levelDiv.appendChild(divQ);
+      }
+
+      // Score niveau
+      const scorePercent = Math.round((correctCount / totalQ) * 100);
+      const scoreDiv = document.createElement('div');
+      scoreDiv.className = 'score';
+      scoreDiv.textContent = `Score du niveau ${levelTitleMap[levelName]} : ${correctCount} / ${totalQ} (${scorePercent}%)`;
+      levelDiv.appendChild(scoreDiv);
+
+      // Encouragement
+      const messageDiv = document.createElement('div');
+      messageDiv.className = 'message';
+      messageDiv.textContent = getEncouragement(scorePercent);
+      levelDiv.appendChild(messageDiv);
+
+      main.appendChild(levelDiv);
+
+      totalCorrectAll += correctCount;
+      totalQuestionsAll += totalQ;
+    }
+
+    // Score total global
+    const globalScorePercent = Math.round((totalCorrectAll / totalQuestionsAll) * 100);
+    const globalDiv = document.createElement('div');
+    globalDiv.className = 'global-score';
+    globalDiv.textContent = `Score total global : ${totalCorrectAll} / ${totalQuestionsAll} (${globalScorePercent}%)`;
+    main.appendChild(globalDiv);
+
   </script>
 </body>
 </html>
-    }
-  </script>
-</body>
-</html>
+
+
 C'EST JESUS LE BEST 
