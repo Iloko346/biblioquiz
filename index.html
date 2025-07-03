@@ -7,38 +7,65 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f0f4ff;
+      background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
       text-align: center;
       padding: 2rem;
+      margin: 0;
+      color: #333;
     }
+
     h1 {
-      color: #0a2d59;
+      color: #4a2c2a;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
+
     .intro {
       max-width: 600px;
       margin: auto;
       background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     }
+
+    .intro p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1.2rem;
+    }
+
     .btn {
       display: inline-block;
       margin-top: 1.5rem;
       padding: 1rem 2rem;
-      background: #0a2d59;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 1.1rem;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(255, 154, 158, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(255, 154, 158, 0.7);
     }
   </style>
 </head>
 <body>
   <h1>Bienvenue sur BiblioQuiz</h1>
-   <img src="c:\Users\Lenovo\Downloads\aca8a7fa-3948-4f3a-8e36-e2432c4b5b76.jpeg" alt="Image biblique d'accueil" class="image-accueil">
+
   <div class="intro">
     <p>Teste ta connaissance de la Bible à travers plusieurs niveaux !</p>
+    <p>Commence par le niveau Débutant, puis progresse jusqu'au niveau Extrême Docteur.</p>
+    <a href="debutant.html" class="btn">Commencer - Niveau Débutant</a>
+  </div>
+</body>
+</html>
+
     <p>Commence par le niveau Débutant, puis progresse jusqu'au niveau Extrême Docteur.</p>
     <a href="debutant.html" class="btn">Commencer - Niveau Débutant</a>
   </div>
